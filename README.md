@@ -77,10 +77,10 @@ let g:lightline#ale#indicator_ok = "\uf00c"
 
 " Cherry pick Lightline's Mode color for the 'OK' coloring
 let g:lightline.component_type = {
-			\			'linter_ok': 'left',
-			\			'linter_warnings': 'warning',
-			\			'linter_errors': 'error',
-			\ }
+      \     'linter_ok': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     }
 
 
 
