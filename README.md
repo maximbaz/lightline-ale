@@ -68,6 +68,13 @@ then you'll want to use one of the [Patched Nerd Fonts](https://github.com/ryano
 In particular use the following snippet:
 
 ```
+" It is important to use double quotes for \u to work in Vim Scripts.
+" Else type <c-v>U<8-digit-unicode> to insert the literal character.
+" See the code points for patched NerdFont fonts: https://github.com/ryanoasis/nerd-fonts#glyph-sets
+let g:lightline#ale#indicator_warnings = "\uf071"
+let g:lightline#ale#indicator_errors = "\uf00d"
+let g:lightline#ale#indicator_ok = "\uf00c"
+
 " Cherry pick Lightline's Mode color for the 'OK' coloring
 let g:lightline.component_type = {
 			\			'linter_ok': 'left',
@@ -75,12 +82,7 @@ let g:lightline.component_type = {
 			\			'linter_errors': 'error',
 			\ }
 
-" Also see the code points for patched NerdFont fonts: https://github.com/ryanoasis/nerd-fonts#glyph-sets
-" It is important to use double quotes for \u to work in Vim Scripts.
-" Else type <c-v>U<8-digit-unicode> to insert the literal character.
-let g:lightline#ale#indicator_warnings = "\uf071"
-let g:lightline#ale#indicator_errors = "\uf00d"
-let g:lightline#ale#indicator_ok = "\uf00c"
+
 
 ```
 
