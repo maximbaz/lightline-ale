@@ -21,7 +21,7 @@ call dein#add('maximbaz/lightline-ale')
 
 ## Integration
 
-1. Register the component:
+1. Register the components:
 
 ```viml
 let g:lightline.component_expand = {
@@ -31,16 +31,17 @@ let g:lightline.component_expand = {
       \ }
 ```
 
-2. Set color to the component (use `warning` or `error`):
+2. Set color to the components:
 
 ```viml
 let g:lightline.component_type = {
       \     'linter_warnings': 'warning',
       \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
       \ }
 ```
 
-3. Add the component to the lightline, for example to the right side:
+3. Add the components to the lightline, for example to the right side:
 
 ```viml
 let g:lightline.active = { 'right': [[ 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
@@ -60,7 +61,7 @@ The indicator to use when there are errors. Default is `E:`.
 
 The indicator to use when there are no warnings or errors. Default is `OK`.
 
-### Custom Indicators
+### Using icons as indicators
 
 If you would like to replace the default indicators with symbols like on the screenshot, then you'll need to ensure you have some "iconic fonts" installed, such as [Font Awesome](https://fontawesome.com). A common alternative is to replace your primary font with one of the [Patched Nerd Fonts](https://github.com/ryanoasis/nerd-fonts), which saves you from having to install multiple fonts.
 
@@ -70,24 +71,19 @@ The following icons from the Font Awesome font are used in the screenshot:
 * Errors: [f05e](https://fontawesome.com/icons/ban)
 * OK: [f00c](https://fontawesome.com/icons/check) (although I prefer to disable this component)
 
-Here's an example configuration snippet:
+To specify icons in the configuration, use their unicode codes as `"\uXXXX"` (make sure to wrap them in double quotes). Alternatively copy the icons from a font website, or type <kbd>\<C-v\>u\<4-digit-unicode\></kbd> or <kbd>\<C-v\>U\<8-digit-unicode\></kbd> to insert the literal characters.
+
+See the code points here:
+
+* Font Awesome: https://fontawesome.com/icons
+* Nerd Fonts: https://github.com/ryanoasis/nerd-fonts#glyph-sets
+
+Here's the configuration snippet used in the screenshot:
 
 ```viml
-" It is important to use double quotes for \u to work in Vim Scripts.
-" Else copy the icon from a font website or type <C-v>u<4-digit-unicode> or <C-v>U<8-digit-unicode> to insert the literal character.
-" See the code points here:
-"   - Font Awesome: https://fontawesome.com/icons
-"   - Nerd Fonts: https://github.com/ryanoasis/nerd-fonts#glyph-sets
 let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
-
-" Cherry pick Lightline's Mode color for the 'OK' coloring
-let g:lightline.component_type = {
-      \     'linter_ok': 'left',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \     }
 ```
 
 ## License
