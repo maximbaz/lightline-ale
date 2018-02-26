@@ -1,6 +1,7 @@
 let s:indicator_warnings = get(g:, 'lightline#ale#indicator_warnings', 'W:')
 let s:indicator_errors = get(g:, 'lightline#ale#indicator_errors', 'E:')
 let s:indicator_ok = get(g:, 'lightline#ale#indicator_ok', 'OK')
+let s:indicator_checking = get(g:, 'lightline#ale#indicator_checking', 'Linting...')
 
 function! lightline#ale#warnings() abort
   let l:counts = ale#statusline#Count(bufnr(''))
@@ -18,4 +19,8 @@ endfunction
 function! lightline#ale#ok() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   return l:counts.total == 0 ? s:indicator_ok : ''
+endfunction
+
+function! lightline#ale#checking() abort
+  return ale#engine#IsCheckingBuffer(bufnr('')) ? s:indicator_checking : ''
 endfunction

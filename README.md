@@ -6,10 +6,10 @@ This plugin provides [ALE](https://github.com/w0rp/ale) indicator for the [light
 
 ## Table Of Contents
 
-- [Installation](#installation)
-- [Integration](#integration)
-- [Configuration](#configuration)
-- [License](#license)
+* [Installation](#installation)
+* [Integration](#integration)
+* [Configuration](#configuration)
+* [License](#license)
 
 ## Installation
 
@@ -25,6 +25,7 @@ call dein#add('maximbaz/lightline-ale')
 
 ```viml
 let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
       \  'linter_warnings': 'lightline#ale#warnings',
       \  'linter_errors': 'lightline#ale#errors',
       \  'linter_ok': 'lightline#ale#ok',
@@ -35,6 +36,7 @@ let g:lightline.component_expand = {
 
 ```viml
 let g:lightline.component_type = {
+      \     'linter_checking': 'warning',
       \     'linter_warnings': 'warning',
       \     'linter_errors': 'error',
       \     'linter_ok': 'left',
@@ -44,10 +46,14 @@ let g:lightline.component_type = {
 3. Add the components to the lightline, for example to the right side:
 
 ```viml
-let g:lightline.active = { 'right': [[ 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
+let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
 ```
 
 ## Configuration
+
+##### `g:lightline#ale#indicator_checking`
+
+The indicator to use when ALE is in progress. Default is `Linting...`.
 
 ##### `g:lightline#ale#indicator_warnings`
 
@@ -67,6 +73,7 @@ If you would like to replace the default indicators with symbols like on the scr
 
 The following icons from the Font Awesome font are used in the screenshot:
 
+* Checking: [f110](https://fontawesome.com/icons/spinner)
 * Warnings: [f071](https://fontawesome.com/icons/exclamation-triangle)
 * Errors: [f05e](https://fontawesome.com/icons/ban)
 * OK: [f00c](https://fontawesome.com/icons/check) (although I prefer to disable this component)
@@ -81,6 +88,7 @@ See the code points here:
 Here's the configuration snippet used in the screenshot:
 
 ```viml
+let g:lightline#ale#indicator_checking = "\uf110"
 let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
