@@ -4,7 +4,7 @@ let s:indicator_ok = get(g:, 'lightline#ale#indicator_ok', 'OK')
 let s:indicator_checking = get(g:, 'lightline#ale#indicator_checking', 'Linting...')
 
 function! lightline#ale#warnings() abort
-  if ! lightline#ale#checked()
+  if !lightline#ale#linted()
     return ''
   endif
   let l:counts = ale#statusline#Count(bufnr(''))
@@ -14,7 +14,7 @@ function! lightline#ale#warnings() abort
 endfunction
 
 function! lightline#ale#errors() abort
-  if ! lightline#ale#checked()
+  if !lightline#ale#linted()
     return ''
   endif
   let l:counts = ale#statusline#Count(bufnr(''))
@@ -23,7 +23,7 @@ function! lightline#ale#errors() abort
 endfunction
 
 function! lightline#ale#ok() abort
-  if ! lightline#ale#checked()
+  if !lightline#ale#linted()
     return ''
   endif
   let l:counts = ale#statusline#Count(bufnr(''))
@@ -34,6 +34,6 @@ function! lightline#ale#checking() abort
   return ale#engine#IsCheckingBuffer(bufnr('')) ? s:indicator_checking : ''
 endfunction
 
-function! lightline#ale#checked() abort
-  return getbufvar(bufnr(''), 'ale_linted', 0) > 0
+function! lightline#ale#linted() abort
+  return getbufvar(bufnr(''), 'ale_linted', 0) > 0 && !ale#engine#IsCheckingBuffer(bufnr(''))
 endfunction
