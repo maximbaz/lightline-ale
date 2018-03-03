@@ -36,7 +36,7 @@ let g:lightline.component_expand = {
 
 ```viml
 let g:lightline.component_type = {
-      \     'linter_checking': 'warning',
+      \     'linter_checking': 'left',
       \     'linter_warnings': 'warning',
       \     'linter_errors': 'error',
       \     'linter_ok': 'left',
