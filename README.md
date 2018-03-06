@@ -24,6 +24,8 @@ call dein#add('maximbaz/lightline-ale')
 1. Register the components:
 
 ```viml
+let g:lightline = {}
+
 let g:lightline.component_expand = {
       \  'linter_checking': 'lightline#ale#checking',
       \  'linter_warnings': 'lightline#ale#warnings',
