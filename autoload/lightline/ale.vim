@@ -35,5 +35,5 @@ function! lightline#ale#checking() abort
 endfunction
 
 function! lightline#ale#linted() abort
-  return getbufvar(bufnr(''), 'ale_linted', 0) > 0 && !ale#engine#IsCheckingBuffer(bufnr(''))
+  return get(g:, 'ale_enabled', 0) == 1 && getbufvar(bufnr(''), 'ale_linted', 0) > 0 && !ale#engine#IsCheckingBuffer(bufnr(''))
 endfunction
