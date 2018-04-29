@@ -3,6 +3,10 @@ let s:indicator_errors = get(g:, 'lightline#ale#indicator_errors', 'E:')
 let s:indicator_ok = get(g:, 'lightline#ale#indicator_ok', 'OK')
 let s:indicator_checking = get(g:, 'lightline#ale#indicator_checking', 'Linting...')
 
+
+""""""""""""""""""""""
+" Lightline components
+
 function! lightline#ale#warnings() abort
   if !lightline#ale#linted()
     return ''
@@ -31,9 +35,31 @@ function! lightline#ale#ok() abort
 endfunction
 
 function! lightline#ale#checking() abort
-  return ale#engine#IsCheckingBuffer(bufnr('')) ? s:indicator_checking : ''
+  return lightline#ale#marked_linting() ? s:indicator_checking : ''
+endfunction
+
+
+""""""""""""""""""""""""""""
+" Autocmd internal functions
+
+function! lightline#ale#mark_lint_started() abort
+  call setbufvar(bufnr(''), 'lightline_ale_linting', 1)
+endfunction
+
+function! lightline#ale#mark_lint_stopped() abort
+  call setbufvar(bufnr(''), 'lightline_ale_linting', 0)
+endfunction
+
+
+""""""""""""""""""
+" Helper functions
+
+function! lightline#ale#marked_linting() abort
+  return getbufvar(bufnr(''), 'lightline_ale_linting', 0)
 endfunction
 
 function! lightline#ale#linted() abort
-  return get(g:, 'ale_enabled', 0) == 1 && getbufvar(bufnr(''), 'ale_linted', 0) > 0 && !ale#engine#IsCheckingBuffer(bufnr(''))
+  return get(g:, 'ale_enabled', 0) == 1 \
+           && getbufvar(bufnr(''), 'ale_linted', 0) > 0 \
+           && lightline#ale#marked_linting() == 0
 endfunction
