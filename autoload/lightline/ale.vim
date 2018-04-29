@@ -3,6 +3,10 @@ let s:indicator_errors = get(g:, 'lightline#ale#indicator_errors', 'E:')
 let s:indicator_ok = get(g:, 'lightline#ale#indicator_ok', 'OK')
 let s:indicator_checking = get(g:, 'lightline#ale#indicator_checking', 'Linting...')
 
+
+""""""""""""""""""""""
+" Lightline components
+
 function! lightline#ale#warnings() abort
   if !lightline#ale#linted()
     return ''
@@ -34,6 +38,12 @@ function! lightline#ale#checking() abort
   return ale#engine#IsCheckingBuffer(bufnr('')) ? s:indicator_checking : ''
 endfunction
 
+
+""""""""""""""""""
+" Helper functions
+
 function! lightline#ale#linted() abort
-  return get(g:, 'ale_enabled', 0) == 1 && getbufvar(bufnr(''), 'ale_linted', 0) > 0 && !ale#engine#IsCheckingBuffer(bufnr(''))
+  return get(g:, 'ale_enabled', 0) == 1 \
+      && getbufvar(bufnr(''), 'ale_linted', 0) > 0 \
+      && ale#engine#IsCheckingBuffer(bufnr('')) == 0
 endfunction
