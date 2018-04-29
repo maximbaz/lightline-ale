@@ -1,4 +1,5 @@
 augroup lightline#ale
   autocmd!
-  autocmd User ALELint call lightline#update()
+  autocmd User ALELintPre  call lightline#ale#mark_lint_started() | call lightline#update()
+  autocmd User ALELintPost call lightline#ale#mark_lint_stopped() | call lightline#update()
 augroup END
