@@ -43,7 +43,7 @@ endfunction
 " Helper functions
 
 function! lightline#ale#linted() abort
-  return get(g:, 'ale_enabled', 0) == 1 \
-      && getbufvar(bufnr(''), 'ale_linted', 0) > 0 \
-      && ale#engine#IsCheckingBuffer(bufnr('')) == 0
+  return get(g:, 'ale_enabled', 0) == 1
+    \ && getbufvar(bufnr(''), 'ale_linted', 0) > 0
+    \ && ale#engine#IsCheckingBuffer(bufnr('')) == 0
 endfunction
