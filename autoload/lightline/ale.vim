@@ -13,7 +13,7 @@ function! lightline#ale#warnings() abort
   endif
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
+  let l:all_non_errors = l:counts.total - l:all_errors - l:counts.info
   return l:all_non_errors == 0 ? '' : printf(s:indicator_warnings . '%d', all_non_errors)
 endfunction
 
