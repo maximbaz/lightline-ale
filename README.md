@@ -1,7 +1,8 @@
 # lightline-lsp
 
 This plugin provides [vim-lsp](https://github.com/prabirshrestha/vim-lsp) indicator for the [lightline](https://github.com/itchyny/lightline.vim) vim plugin.
-Forked from [lightline-ale](https://github.com/maximbaz/lightline-ale)
+
+Forked from [lightline-ale](https://github.com/maximbaz/lightline-ale).
 
 ## Table Of Contents
 
@@ -100,5 +101,6 @@ let g:lightline#lsp#indicator_ok = "\uf00c"
 
 ## License
 
-Released under the [MIT License](LICENSE)
-Based lightline-ale released under the [MIT License](LICENSE-lightline-ale)
+Released under the [MIT License](LICENSE).
+
+Based lightline-ale released under the [MIT License](LICENSE-lightline-ale).
