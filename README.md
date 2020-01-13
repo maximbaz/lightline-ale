@@ -101,3 +101,4 @@ let g:lightline#lsp#indicator_ok = "\uf00c"
 ## License
 
 Released under the [MIT License](LICENSE)
+Based lightline-ale released under the [MIT License](LICENSE-lightline-ale)
