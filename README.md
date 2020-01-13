@@ -1,8 +1,7 @@
-# lightline-ale
+# lightline-lsp
 
-This plugin provides [ALE](https://github.com/w0rp/ale) indicator for the [lightline](https://github.com/itchyny/lightline.vim) vim plugin.
-
-![screenshot](./screenshot.png)
+This plugin provides [vim-lsp](https://github.com/prabirshrestha/vim-lsp) indicator for the [lightline](https://github.com/itchyny/lightline.vim) vim plugin.
+Forked from [lightline-ale](https://github.com/maximbaz/lightline-ale)
 
 ## Table Of Contents
 
@@ -16,9 +15,10 @@ This plugin provides [ALE](https://github.com/w0rp/ale) indicator for the [light
 Install using a plugin manager of your choice, for example:
 
 ```viml
-call dein#add('w0rp/ale')                 " Dependency: linter
+call dein#add('prabirshrestha/async.vim') " Dependency: linter async lib
+call dein#add('vim-lsp')                  " Dependency: linter
 call dein#add('itchyny/lightline.vim')    " Dependency: status line
-call dein#add('maximbaz/lightline-ale')
+call dein#add('tsuyoshicho/lightline-lsp')
 ```
 
 ## Integration
@@ -29,10 +29,10 @@ call dein#add('maximbaz/lightline-ale')
 let g:lightline = {}
 
 let g:lightline.component_expand = {
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
+      \  'linter_checking': 'lightline#lsp#checking',
+      \  'linter_warnings': 'lightline#lsp#warnings',
+      \  'linter_errors': 'lightline#lsp#errors',
+      \  'linter_ok': 'lightline#lsp#ok',
       \ }
 ```
 
@@ -55,19 +55,19 @@ let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'lint
 
 ## Configuration
 
-##### `g:lightline#ale#indicator_checking`
+##### `g:lightline#lsp#indicator_checking`
 
-The indicator to use when ALE is in progress. Default is `Linting...`.
+The indicator to use when vim-lsp is in progress. Default is `Linting...`.
 
-##### `g:lightline#ale#indicator_warnings`
+##### `g:lightline#lsp#indicator_warnings`
 
 The indicator to use when there are warnings. Default is `W:`.
 
-##### `g:lightline#ale#indicator_errors`
+##### `g:lightline#lsp#indicator_errors`
 
 The indicator to use when there are errors. Default is `E:`.
 
-##### `g:lightline#ale#indicator_ok`
+##### `g:lightline#lsp#indicator_ok`
 
 The indicator to use when there are no warnings or errors. Default is `OK`.
 
@@ -92,10 +92,10 @@ See the code points here:
 Here's the configuration snippet used in the screenshot:
 
 ```viml
-let g:lightline#ale#indicator_checking = "\uf110"
-let g:lightline#ale#indicator_warnings = "\uf071"
-let g:lightline#ale#indicator_errors = "\uf05e"
-let g:lightline#ale#indicator_ok = "\uf00c"
+let g:lightline#lsp#indicator_checking = "\uf110"
+let g:lightline#lsp#indicator_warnings = "\uf071"
+let g:lightline#lsp#indicator_errors = "\uf05e"
+let g:lightline#lsp#indicator_ok = "\uf00c"
 ```
 
 ## License
