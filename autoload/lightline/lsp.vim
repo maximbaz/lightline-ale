@@ -43,7 +43,7 @@ endfunction
 
 " server(whitelist first item) status
 " use undocumented API
-let s:lightline#lsp#server_status = {
+let s:server_status = {
           \ "unknown server" : 'warning',
           \ "exited"         : 'error',
           \ "starting"       : 'warning',
@@ -73,7 +73,7 @@ function! s:lsp_status(type) abort
   let server_name = servers[0]
   let status = lsp#get_server_status(server_name)
 
-  if s:lightline#lsp#server_status[status] ==? a:type
+  if s:server_status[status] ==? a:type
     return server_name . ':' .  status
   endif
   return ''
