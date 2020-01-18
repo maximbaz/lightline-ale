@@ -41,11 +41,11 @@ let g:lightline.component_expand = {
 
 ```viml
 let g:lightline.component_type = {
-      \     'linter_checking': 'left',
-      \     'linter_infos': 'normal',
+      \     'linter_checking': 'right',
+      \     'linter_infos': 'right',
       \     'linter_warnings': 'warning',
       \     'linter_errors': 'error',
-      \     'linter_ok': 'left',
+      \     'linter_ok': 'right',
       \ }
 ```
 
