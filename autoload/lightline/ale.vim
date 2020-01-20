@@ -22,7 +22,7 @@ function! lightline#ale#warnings() abort
   endif
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_warnings = l:counts.warning + l:counts.style_warning
-  return l:all_warnings == 0 ? '' : printf(s:indicator_warnings . '%d', all_warnings)
+  return l:all_warnings == 0 ? '' : printf(s:indicator_warnings . ' %d', all_warnings)
 endfunction
 
 function! lightline#ale#errors() abort
@@ -31,7 +31,7 @@ function! lightline#ale#errors() abort
   endif
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
-  return l:all_errors == 0 ? '' : printf(s:indicator_errors . '%d', all_errors)
+  return l:all_errors == 0 ? '' : printf(s:indicator_errors . ' %d', all_errors)
 endfunction
 
 function! lightline#ale#ok() abort
