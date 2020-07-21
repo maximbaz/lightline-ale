@@ -137,8 +137,10 @@ Here's the configuration snippet used in the lightline-ale:
 
 ```viml
 let g:lightline#lsp#indicator_checking = "\uf110"
-let g:lightline#lsp#indicator_warnings = "\uf071"
-let g:lightline#lsp#indicator_errors = "\uf05e"
+let g:lightline#lsp#indicator_warning = "\uf071"
+let g:lightline#lsp#indicator_error = "\uf05e"
+let g:lightline#lsp#indicator_information = "\uf05a"
+let g:lightline#lsp#indicator_hint = "\uf0e5"
 let g:lightline#lsp#indicator_ok = "\uf00c"
 ```
 
