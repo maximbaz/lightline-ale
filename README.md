@@ -39,8 +39,10 @@ call dein#add('tsuyoshicho/lightline-lsp')
 " already previous setting exists, you would be using expand() function to  dictionary expand.
 let g:lightline.component_expand = {
       \  'linter_checking' : 'lightline#lsp#checking',
-      \  'linter_warnings' : 'lightline#lsp#warnings',
-      \  'linter_errors'   : 'lightline#lsp#errors',
+      \  'linter_error'    : 'lightline#lsp#error',
+      \  'linter_warning'  : 'lightline#lsp#warning',
+      \  'linter_info'     : 'lightline#lsp#information',
+      \  'linter_error'    : 'lightline#lsp#hint',
       \  'linter_ok'       : 'lightline#lsp#ok',
       \}
 
@@ -50,6 +52,11 @@ let g:lightline.component_expand = {
       \  'lsp_status_error'     : 'lightline#lsp#status_error',
       \  'lsp_status_warning'   : 'lightline#lsp#status_warning',
       \  'lsp_status_ok'        : 'lightline#lsp#status_ok',
+      \}
+
+" count indicator
+let g:lightline.component_function = {
+      \   'lsp_count':    'lightline#lsp#count',
       \}
 ```
 
@@ -81,6 +88,7 @@ let g:lightline.component_type = {
 " already previous setting exists, you would be using expand() function to  dictionary expand.
 let g:lightline.active = { 'right': [
       \  ['lsp_status_error', 'lsp_status_warning', 'lsp_status_ok'],
+      \  ['lsp_count'],
       \  [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
       \]}
 ```
@@ -102,6 +110,10 @@ The indicator to use when there are errors. Default is `E:`.
 ### `g:lightline#lsp#indicator_ok`
 
 The indicator to use when there are no warnings or errors. Default is `OK`.
+
+### `g:lightline#lsp#server_interval`
+
+This interval as servers cycle status indicatation(sec).
 
 ### Using icons as indicators
 
