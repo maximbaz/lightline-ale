@@ -55,6 +55,17 @@ let g:lightline.component_type = {
 let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
 ```
 
+      3.1. Lineinfo, fileformat, etc. have to be added additionaly. Final example:
+
+```viml
+let g:lightline.active = {
+            \ 'right': [ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
+            \            [ 'lineinfo' ],
+	    \            [ 'percent' ],
+	    \            [ 'fileformat', 'fileencoding', 'filetype'] ]}
+
+```
+            
 ## Configuration
 
 ##### `g:lightline#ale#indicator_checking`
