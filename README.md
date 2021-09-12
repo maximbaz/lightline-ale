@@ -144,6 +144,11 @@ let g:lightline#lsp#indicator_hint = "\uf0e5"
 let g:lightline#lsp#indicator_ok = "\uf00c"
 ```
 
+## Related Plugins
+
+- [halkn/lightline-lsp](https://github.com/halkn/lightline-lsp) - lsp counts
+- [micchy326/lightline-lsp-progress](https://github.com/micchy326/lightline-lsp-progress) - lsp progress status
+
 ## License
 
 Released under the [MIT License](LICENSE).
